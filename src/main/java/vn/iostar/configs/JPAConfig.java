@@ -7,8 +7,23 @@ import jakarta.persistence.PersistenceContext;
 
 @PersistenceContext
 public class JPAConfig {
+
+	private static EntityManagerFactory factory;
+
+	// Static initializer block to ensure the factory is created only once
+	static {
+		try {
+			factory = Persistence.createEntityManagerFactory("LTWeb081024");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
 	public static EntityManager getEntityManager() {
-		EntityManagerFactory factory = Persistence.createEntityManagerFactory("jpa-hibernate-sql");	//from persistance.xml
-		return factory.createEntityManager();
+		if (factory != null) {
+			return factory.createEntityManager();
+		}
+		
+		return null;
 	}
 }

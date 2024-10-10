@@ -17,6 +17,13 @@
 			<version>6.6.1.Final</version>
 			<type>pom</type>
 		</dependency>	<!-- enough for JPA -->
+		<!--
+		https://mvnrepository.com/artifact/org.hibernate.orm/hibernate-jpamodelgen -->
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-jpamodelgen</artifactId>
+			<version>6.6.1.Final</version>
+		</dependency>   <!-- Hibernate Persistence Provider -->
 
 		<!-- VALIDATION -->
 		<!--
