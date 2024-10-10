@@ -24,8 +24,8 @@ public class Tester {
 
         try {
             trans.begin();
-            enma.persist(cat);
-            enma.persist(vid);
+//            enma.persist(cat);
+//            enma.persist(vid);
             trans.commit();
         } catch (Exception e) {
             e.printStackTrace();
