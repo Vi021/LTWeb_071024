@@ -7,14 +7,12 @@
              version="3.0">
              
     <persistence-unit name="jpa-hibernate-sql">
-    	<class>vn.iostar.entity.Category</class>
-    	<class>vn.iostar.entity.Video</class>
     	
         <properties>
-            <property name="jakarta.persistence.jdbc.url" value="jdbc:sqlserver://localhost:49172;databaseName=WEPR_DefaultDB;encrypt=true;trustServerCertificate=true" />
-            <property name="jakarta.persistence.jdbc.driver" value="com.microsoft.sqlserver.jdbc.SQLServerDriver" />
+            <property name="jakarta.persistence.jdbc.url" value="jdbc:sqlserver://localhost:49172;databaseName=WEPR_JPA081524;encrypt=true;trustServerCertificate=true" />
             <property name="jakarta.persistence.jdbc.user" value="guess" />
             <property name="jakarta.persistence.jdbc.password" value="12345" />
+            <property name="jakarta.persistence.jdbc.driver" value="com.microsoft.sqlserver.jdbc.SQLServerDriver" />
             
             <property name="hibernate.show_sql" value="true" />
             <property name="hibernate.format_sql" value="true" />

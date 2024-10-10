@@ -16,22 +16,19 @@ import jakarta.validation.constraints.NotEmpty;
 
 @Entity
 @Table(name="CATEGORIES")
-//@AllArgsConstructor
-//@NoArgsConstructor
-//@Data
 @NamedQuery(name="Category.findAll", query="SELECT c FROM Category c")	//#?
 public class Category implements Serializable {
 	@Serial
 	private static final long serialVersionUID = 1L;
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)	//tang tu dong?
 	@Column(name = "CategoryId")
 	private int categoryId;
 
 	@Column(name = "CategoryName", columnDefinition = "NVARCHAR(200) NOT NULL")
 	@NotEmpty(message = "Must not be empty")
-	private String categoryName;
+	private String categoryname;
 
 	@Column(name = "Image", columnDefinition = "NVARCHAR(MAX)")
 	private String image;
