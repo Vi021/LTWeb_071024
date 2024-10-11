@@ -22,12 +22,12 @@ onclick="location.href='${pageContext.request.contextPath}/category/add'">Add Ca
  			<td>${STT.index+1}</td>
  			<td>
  				<c:choose>
-					<c:when test="${cate.images.contains('http')}">
-						<img height="150" width="200" src="${cate.images}"
+					<c:when test="${cate.image.contains('http')}">
+						<img height="150" width="200" src="${cate.image}"
 							alt="Image not found" />
 					</c:when>
 					<c:otherwise>
-						<c:url value="/image?filename=${cate.images}" var="imgUrl"></c:url>
+						<c:url value="/image?filename=${cate.image}" var="imgUrl"></c:url>
 						<img height="150" width="200" src="${imgUrl}"
 							alt="Image not found" />
 					</c:otherwise>
@@ -36,9 +36,9 @@ onclick="location.href='${pageContext.request.contextPath}/category/add'">Add Ca
  			<td>${cate.categoryid}</td>
  			<td>${cate.categoryname}</td>
  			<td>
- 				<c:if test="${cate.status == 1}">
+ 				<c:if test="${cate.status}">
  					<span>Active</span></c:if>
- 				<c:if test="${cate.status != 1}">
+ 				<c:if test="${!cate.status}">
  					<span>Locked</span></c:if>
  			</td>
 			<td>

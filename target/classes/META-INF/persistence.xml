@@ -5,24 +5,27 @@
              xsi:schemaLocation="https://jakarta.ee/xml/ns/persistence
              https://jakarta.ee/xml/ns/persistence/persistence_3_0.xsd"
              version="3.0">
-             
+
     <persistence-unit name="LTWeb081024">
+    	<!-- PERSISTENCE PROVIDER -->
     	<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
-    
+
+    	<!-- ENTITY CLASSES -->
     	<class>vn.iostar.entities.Category</class>
     	<class>vn.iostar.entities.Video</class>
-    	
+
+    	<!-- DATABASE CONNECTION PROPERTIES -->
         <properties>
             <property name="jakarta.persistence.jdbc.url" value="jdbc:sqlserver://localhost:49172;databaseName=WEPR_JPA081024;encrypt=true;trustServerCertificate=true" />
             <property name="jakarta.persistence.jdbc.user" value="guess" />
             <property name="jakarta.persistence.jdbc.password" value="12345" />
             <property name="jakarta.persistence.jdbc.driver" value="com.microsoft.sqlserver.jdbc.SQLServerDriver" />
-            
+
             <property name="hibernate.show_sql" value="true" />
             <property name="hibernate.format_sql" value="true" />
             <property name="hibernate.hbm2ddl.auto" value="update" />
             <property name="hibernate.dialect" value="org.hibernate.dialect.SQLServerDialect" />
         </properties>
     </persistence-unit>
-    
+
 </persistence>

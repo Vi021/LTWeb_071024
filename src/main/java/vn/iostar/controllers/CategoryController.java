@@ -78,7 +78,7 @@ public class CategoryController extends HttpServlet {
 				uploadDir.mkdir();
 			}
 			try {
-				Part part = req.getPart("cateimg"); // #
+				Part part = req.getPart("cateimgfile"); // #
 				if (part != null && part.getSize() > 0) {
 					String fname = Paths.get(part.getSubmittedFileName()).getFileName().toString();
 
