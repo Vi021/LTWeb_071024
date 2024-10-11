@@ -26,16 +26,16 @@
 						alt="Image not found" id="catImg" />
 				</c:otherwise>
 			</c:choose><br>
-		<input type="file" onchange="chooseFile(this)" id="cateimgfile" name="cateimgfile"><br>
-<%-- 		<input type="text" id="cateimglink" name="cateimglink" value="${cat.image}" readonly> --%>
+		<input type="file" onchange="showImage(this)" id="cateimgfile" name="cateimgfile"><br>
+ 		<input type="text" id="cateimglink" name="cateimglink" value="${cat.image}" readonly>
 		<br><br>
-		<label for="status">Status<br>
-		<input type="radio" name="status" value="true" id="status"
+		<label>Status<br>
+		<input type="radio" name="status" value="true" id="statusActive"
 			<c:if test="${cat.status == true}">
 				   checked="checked"
 			</c:if>
 		>Active
-		<input type="radio" name="status" value="false" id="status"
+		<input type="radio" name="status" value="false" id="statusLocked"
 			<c:if test="${cat.status == false}">
 				   checked="checked"
 			</c:if>

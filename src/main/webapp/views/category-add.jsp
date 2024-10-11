@@ -10,12 +10,12 @@
 		<input type="text" id="catename" name="catename">
 		<br><br>
 		<label for="cateimgfile">Image</label><br>
-		<img alt="No image to show" src="" height="150" width="200" id="catImg"><br>
-		<input type="file" onchange="chooseFile(this)" id="cateimgfile" name="cateimgfile">
+		<img alt="No image selected" src="" height="150" width="200" id="catImg"><br>
+		<input type="file" onchange="showImage(this)" id="cateimgfile" name="cateimgfile">
 		<br><br>
-        <label for="status">Status<br>
-            <input type="radio" name="status" value="true" id="status">Active
-            <input type="radio" name="status" value="false" id="status">Locked
+        <label>Status<br>
+            <input type="radio" name="status" value="true" id="statusActive">Active
+            <input type="radio" name="status" value="false" id="statusLocked">Locked
         </label>
 		<br><br>
 		<input type="submit" value="Submit">
