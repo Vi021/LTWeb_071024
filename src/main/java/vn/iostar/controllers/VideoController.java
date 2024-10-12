@@ -47,10 +47,10 @@ public class VideoController extends HttpServlet {
             req.setAttribute("vid", video);
             req.getRequestDispatcher("/views/video/video-edit.jsp").forward(req, resp);
         } else if (url.contains("/video/delete")) {
-            String id = req.getParameter("id"); // <-- category id, not video id
+            String vidid = req.getParameter("id");
 
             try {
-                vidService.delete(id);
+                vidService.delete(vidid);
 
             } catch (Exception e) {
                 e.printStackTrace();
@@ -67,13 +67,14 @@ public class VideoController extends HttpServlet {
 
         String url = req.getRequestURI();
         if (url.contains("/video/insert")) {
+            Video video = new Video();
+
             String id = req.getParameter("vidid");
             String title = req.getParameter("title");
             String description = req.getParameter("desc");
             int views = Integer.parseInt(req.getParameter("views"));
             boolean active = Boolean.parseBoolean(req.getParameter("status"));
             String catid = req.getParameter("catid");
-            Video video = new Video();
 
             video.setVideoid(id);
             video.setTitle(title);
@@ -108,25 +109,31 @@ public class VideoController extends HttpServlet {
                 e.printStackTrace();
             }
 
-            System.out.print(video);
             vidService.insert(video);
 
             resp.sendRedirect(req.getContextPath() + "/videos");
         } else if (url.contains("/video/update")) {
+            Video video = new Video();
+
             String id = req.getParameter("vidid");
             String title = req.getParameter("title");
+            String description = req.getParameter("desc");
+            int views = Integer.parseInt(req.getParameter("views"));
             boolean active = Boolean.parseBoolean(req.getParameter("status"));
-            Video video = new Video();
+            String catid = req.getParameter("catid");
 
             video.setVideoid(id);
             video.setTitle(title);
+            video.setDescription(description);
+            video.setViews(views);
+            if (!catid.isEmpty() && catid != null) {
+                video.setCategory(catService.findById(Integer.parseInt(catid)));
+            }
             video.setActive(active);
 
             Video vidold = vidService.findById(id);
             String posold = vidold.getPoster();
-
             String filename = "";
-
             File uploadDir = new File(Constants.UPLOAD_DIRECTORY);
             if (!uploadDir.exists()) {
                 uploadDir.mkdir();
@@ -149,6 +156,7 @@ public class VideoController extends HttpServlet {
             } catch (Exception e) {
                 e.printStackTrace();
             }
+
             vidService.update(video);
 
             resp.sendRedirect(req.getContextPath() + "/videos");

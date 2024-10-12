@@ -28,7 +28,7 @@
 		<br><br>
 
 		<label for="catid">Category ID</label><br>
-		<input type="text" id="catid" name="catid">
+		<input type="number" id="catid" name="catid">
 		<br><br>
 
         <label>Status<br>

@@ -57,7 +57,7 @@ onclick="location.href='${pageContext.request.contextPath}/video/add'">Add Video
 
 			<td>
 			<a href="<c:url value='/video/edit?id=${video.videoid}'/>">Edit</a>
-			 | <a href="<c:url value='/video/delete?id=${video.category.categoryid}'/>">Delete</a>
+			 | <a href="<c:url value='/video/delete?id=${video.videoid}'/>">Delete</a>
 			</td>
 
  		</tr>

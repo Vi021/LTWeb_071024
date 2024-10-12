@@ -41,7 +41,7 @@
 		<br><br>
 
 		<label for="catid">Category ID</label><br>
-		<input type="text" id="catid" name="catid" value="${vid.category.categoryid}">
+		<input type="number" id="catid" name="catid" value="${vid.category.categoryid}">
 		<br><br>
 
 		<label>Status<br>
