@@ -66,28 +66,30 @@ public class CategoryDao implements ICategoryDao{
 	
 	@Override
 	public void delete(int categoryid) throws Exception {
-        EntityManager enma = JPAConfig.getEntityManager();
-        EntityTransaction trans = enma.getTransaction();
-        
-        try {
-            trans.begin();
+//        EntityManager enma = JPAConfig.getEntityManager();
+//        EntityTransaction trans = enma.getTransaction();
+//
+//        try {
+//            trans.begin();
+//
+//            Category category = enma.find(Category.class, categoryid);
+//            if (category != null) {
+//                enma.remove(category);
+//            } else {
+//                throw new Exception("No matching category..");
+//            }
+//
+//            trans.commit();
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//            trans.rollback();
+//
+//            throw e;
+//        } finally {
+//            enma.close();
+//        }
 
-            Category category = enma.find(Category.class, categoryid);
-            if (category != null) {
-                enma.remove(category);
-            } else {
-                throw new Exception("No matching category..");
-            }
-            
-            trans.commit();
-        } catch (Exception e) {
-            e.printStackTrace();
-            trans.rollback();
-            
-            throw e;
-        } finally {
-            enma.close();
-        }
+        deleteOnCascade(categoryid);
     }
 	
 	@Override
@@ -129,7 +131,7 @@ public class CategoryDao implements ICategoryDao{
     }
 	
 	// delete all videos of that category before deleting the category itself
-	public void deleteOnCascade(int categoryId) {
+	public void deleteOnCascade(int categoryId) throws Exception {
         EntityManager enma = JPAConfig.getEntityManager();
         EntityTransaction trans = enma.getTransaction();
         
@@ -145,6 +147,8 @@ public class CategoryDao implements ICategoryDao{
                     }
                 }
                 enma.remove(category);
+            } else {
+                throw new Exception("No matching category..");
             }
             
             trans.commit();

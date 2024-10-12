@@ -3,7 +3,7 @@
 
 <%@ taglib prefix="c" uri="jakarta.tags.core" %>
 
-<script src="utils.js"></script>
+<script src="../utils.js"></script>
 
 <form action="${pageContext.request.contextPath}/category/update"
 	method="post" enctype="multipart/form-data">

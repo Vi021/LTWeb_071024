@@ -2,6 +2,7 @@ package vn.iostar.controllers;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.Serial;
 import java.nio.file.Paths;
 import java.util.List;
 
@@ -22,6 +23,7 @@ import vn.iostar.utils.Constants;
 @WebServlet(urlPatterns = { "/categories", "/category/add", "/category/insert",
 		"/category/update", "/category/edit", "/category/delete" })
 public class CategoryController extends HttpServlet {
+	@Serial
 	private static final long serialVersionUID = 1L;
 	public ICategoryService catService = new CategoryService();
 
@@ -35,16 +37,16 @@ public class CategoryController extends HttpServlet {
 			List<Category> lst = catService.findAll();
 
 			req.setAttribute("listcat", lst);
-			req.getRequestDispatcher("/views/category-list.jsp").forward(req, resp);
-		} else if (url.contains("/add")) {
-			req.getRequestDispatcher("/views/category-add.jsp").forward(req, resp);
-		} else if (url.contains("/edit")) {
+			req.getRequestDispatcher("/views/category/category-list.jsp").forward(req, resp);
+		} else if (url.contains("/category/add")) {
+			req.getRequestDispatcher("/views/category/category-add.jsp").forward(req, resp);
+		} else if (url.contains("/category/edit")) {
 			int id = Integer.parseInt(req.getParameter("id"));
 			Category category = catService.findById(id);
 
 			req.setAttribute("cat", category);
-			req.getRequestDispatcher("/views/category-edit.jsp").forward(req, resp);
-		} else if (url.contains("/delete")) {
+			req.getRequestDispatcher("/views/category/category-edit.jsp").forward(req, resp);
+		} else if (url.contains("/category/delete")) {
 			int id = Integer.parseInt(req.getParameter("id"));
 
 			try {
