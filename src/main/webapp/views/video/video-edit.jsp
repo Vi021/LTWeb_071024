@@ -3,7 +3,8 @@
 
 <%@ taglib prefix="c" uri="jakarta.tags.core" %>
 
-<script src="../utils.js"></script>
+<%--<script src="../utils.js"></script>--%>
+<%@ include file="../utils.jsp" %>
 
 <form action="${pageContext.request.contextPath}/video/update"
 	method="post" enctype="multipart/form-data">
